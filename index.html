@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bar & Café - Sandwich de Miga</title>
+    <title>Del Rosario</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <style>
         /* Variables de color */
@@ -608,6 +608,41 @@
             }
         }
     </style>
+  <style> /* Móvil pequeño (menos de 400px) */
+@media (max-width: 400px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* CAMBIAR de 1fr a repeat(2, 1fr) */
+        gap: 15px;
+    }
+    
+    .filter-btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .product-name {
+        font-size: 1rem;
+    }
+    
+    .product-price {
+        font-size: 1.3rem;
+    }
+    
+    /* Menú inferior más compacto para móviles pequeños */
+    .mobile-bottom-nav {
+        padding: 8px 3px 10px;
+    }
+    
+    .nav-item {
+        font-size: 0.65rem;
+        padding: 3px 1px;
+    }
+    
+    .nav-item i {
+        font-size: 0.9rem;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Header móvil -->
@@ -615,9 +650,9 @@
         <div class="header-container">
             <a href="#" class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-bread-slice"></i>
+                    <i class="fas fa-store"></i>
                 </div>
-                <span>Bar & Café</span>
+                <span>Del Rosario</span>
             </a>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -860,17 +895,19 @@
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="footer-column">
                 <h3>Menú Completo</h3>
                 <ul class="footer-links">
+                    <li><a href="index.html">Sandwich de Miga</a></li>
                     <li><a href="bebidas.html">Bebidas</a></li>
                     <li><a href="viandas.html">Viandas</a></li>
                     <li><a href="pasteleria.html">Pastelería</a></li>
                     <!-- NUEVOS ITEMS EN FOOTER -->
                     <li><a href="empanadas.html">Empanadas</a></li>
-                    <li><a href="sandwich.html">Sandwich de Miga</a></li>
+                    
                     <li><a href="golosinas.html">Golosinas</a></li>
                 </ul>
             </div>
@@ -885,20 +922,24 @@
             <div class="footer-column">
                 <h3>Contacto</h3>
                 <ul class="footer-links">
-                    <li>Av. Principal 456</li>
-                    <li>+1 234 567 890</li>
-                    <li>hola@barycafe.com</li>
-                    <li>Pedidos: 15% descuento por WhatsApp</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Principal 456</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> hola@barycafe.com</li>
+                </ul>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 Bar & Café. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Nahuel Mamani. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Menú inferior fijo para móvil CON TODOS LOS ITEMS -->
     <div class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <i class="fas fa-bread-slice"></i>
+            <span>Sandwich</span>
+        </a>
         <a href="bebidas.html" class="nav-item">
             <i class="fas fa-glass-cheers"></i>
             <span>Bebidas</span>
@@ -916,10 +957,7 @@
             <i class="fas fa-drumstick-bite"></i>
             <span>Empanadas</span>
         </a>
-        <a href="sandwich.html" class="nav-item active">
-            <i class="fas fa-bread-slice"></i>
-            <span>Sandwich</span>
-        </a>
+        
         <a href="golosinas.html" class="nav-item">
             <i class="fas fa-candy-cane"></i>
             <span>Golosinas</span>
