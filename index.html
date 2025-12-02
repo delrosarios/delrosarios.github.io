@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar & Café - Sandwich de Miga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <style>
+        /* Variables de color */
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #26a269;
+            --accent: #e5a50a;
+            --light: #f6f5f4;
+            --dark: #241f31;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 70px; /* Más espacio para menú móvil con más items */
+        }
+
+        /* Header móvil optimizado */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        /* Menú lateral con mejor espaciado */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 12px; /* Reducido para mejor distribución */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.9rem; /* Reducido para más items */
+            padding: 8px 12px; /* Reducido para más items */
+            border-radius: 20px;
+            transition: var(--transition);
+            white-space: nowrap; /* Evita saltos de línea */
+        }
+
+        nav a:hover {
+            background: rgba(26, 95, 180, 0.1);
+        }
+
+        nav a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero section optimizada para móvil */
+        .hero {
+            padding: 40px 20px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%);
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #5c5c77;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Filtro de categorías - diseño móvil */
+        .category-filter {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .category-filter::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .filter-btn {
+            padding: 12px 18px;
+            border: none;
+            background: white;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0; /* Evita que se encojan los botones */
+        }
+
+        .filter-btn i {
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Grid de productos - 2 COLUMNAS para móvil */
+        .products-container {
+            padding: 0 15px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+            gap: 15px; /* Espacio más reducido */
+        }
+
+        /* Tarjetas optimizadas para móvil */
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Altura uniforme */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            height: 140px; /* Altura reducida para móvil */
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-header {
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .product-description {
+            color: #5c5c77;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .product-tag {
+            background: rgba(26, 95, 180, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-tag.highlight {
+            background: rgba(38, 162, 105, 0.15);
+            color: var(--secondary);
+        }
+
+        /* Sección de ofertas especiales - móvil */
+        .specials {
+            margin: 30px 15px;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, var(--primary), #3584e4);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .specials-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .special-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .special-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .special-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* Footer móvil */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 20px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #b0b0c0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0c0;
+            font-size: 0.85rem;
+        }
+
+        /* Menú inferior fijo para móvil - CON MÁS ITEMS */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-between; /* Cambiado a space-between para más items */
+            padding: 10px 5px 12px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Oculto por defecto, visible solo en móvil */
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.7rem; /* Reducido para más items */
+            transition: var(--transition);
+            flex: 1; /* Ocupa espacio igual */
+            padding: 5px 2px; /* Reducido para más items */
+            min-width: 0; /* Permite que se encojan */
+        }
+
+        .nav-item i {
+            font-size: 1rem; /* Reducido para más items */
+            margin-bottom: 3px;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-item span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Responsive para tablets y pantallas más grandes */
+        @media (min-width: 768px) {
+            /* Menú lateral con mejor espaciado para más items */
+            nav ul {
+                gap: 8px; /* Más compacto en tablet */
+            }
+            
+            nav a {
+                font-size: 0.85rem; /* Más pequeño en tablet */
+                padding: 8px 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
+                gap: 20px;
+            }
+            
+            .product-image {
+                height: 160px;
+            }
+            
+            .hero {
+                padding: 50px 20px 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .specials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            /* Menú móvil con más espacio en tablet */
+            .mobile-bottom-nav {
+                padding: 12px 10px 15px;
+            }
+            
+            .nav-item {
+                font-size: 0.75rem;
+            }
+            
+            .nav-item i {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Menú lateral con espaciado normal en desktop */
+            nav ul {
+                gap: 12px;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+                gap: 25px;
+            }
+            
+            .product-image {
+                height: 180px;
+            }
+        }
+
+        /* Móvil pequeño (menos de 400px) */
+        @media (max-width: 400px) {
+            .products-grid {
+                grid-template-columns: 1fr; /* 1 columna en móviles muy pequeños */
+                gap: 15px;
+            }
+            
+            .filter-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .product-name {
+                font-size: 1rem;
+            }
+            
+            .product-price {
+                font-size: 1.3rem;
+            }
+            
+            /* Menú inferior más compacto para móviles pequeños */
+            .mobile-bottom-nav {
+                padding: 8px 3px 10px;
+            }
+            
+            .nav-item {
+                font-size: 0.65rem;
+                padding: 3px 1px;
+            }
+            
+            .nav-item i {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mostrar menú hamburguesa en móvil */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav a {
+                padding: 15px;
+                border-radius: 0;
+                border-bottom: 1px solid #f0f0f0;
+                font-size: 1rem; /* Tamaño normal en menú desplegable */
+                display: flex;
+                align-items: center; 
+                gap: 10px;
+            }
+            
+            nav a:last-child {
+                border-bottom: none;
+            }
+            
+            nav a i {
+                width: 20px;
+                text-align: center;
+            }
+            
+            .mobile-bottom-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header móvil -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bread-slice"></i>
+                </div>
+                <span>Bar & Café</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">
+                        <i class="fas fa-bread-slice"></i>
+                        Sandwich de Miga
+                    </a></li>
+                    <li><a href="bebidas.html">
+                        <i class="fas fa-glass-cheers"></i>
+                        Bebidas
+                    </a></li>
+                    <li><a href="viandas.html">
+                        <i class="fas fa-utensils"></i>
+                        Viandas
+                    </a></li>
+                    <li><a href="pasteleria.html">
+                        <i class="fas fa-birthday-cake"></i>
+                        Pastelería
+                    </a></li>
+                    <!-- NUEVOS ITEMS AÑADIDOS -->
+                    <li><a href="empanadas.html">
+                        <i class="fas fa-drumstick-bite"></i>
+                        Empanadas
+                    </a></li>
+                    
+                    <li><a href="golosinas.html">
+                        <i class="fas fa-candy-cane"></i>
+                        Golosinas
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <h1 class="hero-title">Sandwich de Miga</h1>
+        <p class="hero-subtitle">Deliciosos sandwiches de miga artesanales, frescos y con los mejores ingredientes</p>
+    </section>
+
+    <!-- Filtro de categorías (scroll horizontal) -->
+    <div class="category-filter">
+        <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-star"></i> Todos
+        </button>
+        <button class="filter-btn" data-filter="clasicos">
+            <i class="fas fa-home"></i> Clásicos
+        </button>
+        <button class="filter-btn" data-filter="especiales">
+            <i class="fas fa-crown"></i> Especiales
+        </button>
+        <button class="filter-btn" data-filter="vegetarianos">
+            <i class="fas fa-leaf"></i> Vegetarianos
+        </button>
+        <button class="filter-btn" data-filter="triples">
+            <i class="fas fa-layer-group"></i> Triples
+        </button>
+        <button class="filter-btn" data-filter="combos">
+            <i class="fas fa-gift"></i> Combos
+        </button>
+    </div>
+
+    <!-- Grid de productos - 2 COLUMNAS -->
+    <div class="products-container">
+        <div class="products-grid">
+            <!-- Jamón y Queso -->
+            <div class="product-card" data-category="clasicos">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Clásico</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Jamón y Queso</h3>
+                        <div class="product-price">$8.50</div>
+                    </div>
+                    <p class="product-description">Pan de miga blanco con jamón cocido y queso tybo. El clásico de siempre.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Simple</span>
+                        <span class="product-tag highlight">Popular</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Triple Roquefort -->
+            <div class="product-card" data-category="especiales">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Especial</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Triple Roquefort</h3>
+                        <div class="product-price">$14.80</div>
+                    </div>
+                    <p class="product-description">Triple de pan negro con roquefort, nueces y miel. Sabor intenso y único.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Triple</span>
+                        <span class="product-tag highlight">Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vegetariano Caprese -->
+            <div class="product-card" data-category="vegetarianos">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Vegetariano</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Caprese</h3>
+                        <div class="product-price">$9.90</div>
+                    </div>
+                    <p class="product-description">Tomate, albahaca, mozzarella y pesto. Fresco y delicioso.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Vegetariano</span>
+                        <span class="product-tag highlight">Fresco</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crudo y Rúcula -->
+            <div class="product-card" data-category="especiales">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Crudo y Rúcula</h3>
+                        <div class="product-price">$12.50</div>
+                    </div>
+                    <p class="product-description">Jamón crudo, rúcula, parmesano y aceite de oliva extra virgen.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Simple</span>
+                        <span class="product-tag highlight">Gourmet</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Triple Pavita -->
+            <div class="product-card" data-category="triples">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606756790138-261d2b21cd75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Triple</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Triple Pavita</h3>
+                        <div class="product-price">$13.20</div>
+                    </div>
+                    <p class="product-description">Pechuga de pavita, lechuga, tomate y mayonesa light.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Triple</span>
+                        <span class="product-tag highlight">Saludable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atún -->
+            <div class="product-card" data-category="clasicos">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+                    <span class="product-badge">Popular</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Atún</h3>
+                        <div class="product-price">$9.50</div>
+                    </div>
+                    <p class="product-description">Atún desmenuzado con mayonesa casera y pimiento morrón.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Simple</span>
+                        <span class="product-tag highlight">Pescado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palmitos -->
+            <div class="product-card" data-category="vegetarianos">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1559054663-e8d23213f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Palmitos</h3>
+                        <div class="product-price">$10.80</div>
+                    </div>
+                    <p class="product-description">Palmitos con salsa golf casera. Textura suave y sabor delicado.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Vegetariano</span>
+                        <span class="product-tag highlight">Delicado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salmón Ahumado -->
+            <div class="product-card" data-category="especiales">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Salmón Ahumado</h3>
+                        <div class="product-price">$15.50</div>
+                    </div>
+                    <p class="product-description">Salmón noruego, queso crema, alcaparras y eneldo fresco.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Simple</span>
+                        <span class="product-tag highlight">Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ofertas especiales -->
+    <section class="specials">
+        <h2 class="specials-title">Ofertas Especiales</h2>
+        <div class="specials-grid">
+            <div class="special-card">
+                <h4 class="special-name">Combo Familiar</h4>
+                <div class="special-price">$45.00</div>
+                <p>6 sandwiches de miga + 2 bebidas a elección</p>
+            </div>
+            <div class="special-card">
+                <h4 class="special-name">Docena</h4>
+                <div class="special-price">15% off</div>
+                <p>12 sandwiches de miga con 15% de descuento</p>
+            </div>
+            <div class="special-card">
+                <h4 class="special-name">Mix Clásicos</h4>
+                <div class="special-price">$32.90</div>
+                <p>4 jamón y queso + 4 atún + 4 crudo y queso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Bar & Café</h3>
+                <p>Los mejores sandwiches de miga artesanales. Frescos, deliciosos y con ingredientes de calidad.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Menú Completo</h3>
+                <ul class="footer-links">
+                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <li><a href="viandas.html">Viandas</a></li>
+                    <li><a href="pasteleria.html">Pastelería</a></li>
+                    <!-- NUEVOS ITEMS EN FOOTER -->
+                    <li><a href="empanadas.html">Empanadas</a></li>
+                    <li><a href="sandwich.html">Sandwich de Miga</a></li>
+                    <li><a href="golosinas.html">Golosinas</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Horarios</h3>
+                <ul class="footer-links">
+                    <li>Lun-Vie: 7:00-23:00</li>
+                    <li>Sábados: 8:00-00:00</li>
+                    <li>Domingos: 9:00-22:00</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li>Av. Principal 456</li>
+                    <li>+1 234 567 890</li>
+                    <li>hola@barycafe.com</li>
+                    <li>Pedidos: 15% descuento por WhatsApp</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Bar & Café. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Menú inferior fijo para móvil CON TODOS LOS ITEMS -->
+    <div class="mobile-bottom-nav">
+        <a href="bebidas.html" class="nav-item">
+            <i class="fas fa-glass-cheers"></i>
+            <span>Bebidas</span>
+        </a>
+        <a href="viandas.html" class="nav-item">
+            <i class="fas fa-utensils"></i>
+            <span>Viandas</span>
+        </a>
+        <a href="pasteleria.html" class="nav-item">
+            <i class="fas fa-birthday-cake"></i>
+            <span>Pastelería</span>
+        </a>
+        <!-- NUEVOS ITEMS EN MENÚ INFERIOR -->
+        <a href="empanadas.html" class="nav-item">
+            <i class="fas fa-drumstick-bite"></i>
+            <span>Empanadas</span>
+        </a>
+        <a href="sandwich.html" class="nav-item active">
+            <i class="fas fa-bread-slice"></i>
+            <span>Sandwich</span>
+        </a>
+        <a href="golosinas.html" class="nav-item">
+            <i class="fas fa-candy-cane"></i>
+            <span>Golosinas</span>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            // Menú hamburguesa para móvil
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                // Cambiar ícono
+                const icon = menuToggle.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('#mainNav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Filtro de categorías
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Agregar clase activa al botón clickeado
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Mostrar/ocultar productos según filtro
+                    productCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || category === filterValue) {
+                            card.style.display = 'flex';
+                            // Animación de entrada
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            // Animación de salida
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Animación inicial de los productos
+            setTimeout(() => {
+                productCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100); // Efecto escalonado
+                });
+            }, 300);
+            
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function(event) {
+                if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                    mainNav.classList.remove('active');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                }
+            });
+            
+            // Activar elemento del menú inferior al hacer clic
+            document.querySelectorAll('.mobile-bottom-nav .nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.mobile-bottom-nav .nav-item').forEach(navItem => {
+                        navItem.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
