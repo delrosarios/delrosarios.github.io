@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -663,25 +664,25 @@
                         <i class="fas fa-bread-slice"></i>
                         Sandwich de Miga
                     </a></li>
-                    <li><a href="bebidas.html">
-                       <i class="fa-solid fa-bottle-water"></i>
+                    <li><a href="bebidas.html" class="active">
+                        <i class="fa-solid fa-bottle-water"></i>
                         Bebidas
                     </a></li>
-                    <li><a href="viandas.html"  >
+                    <li><a href="viandas.html">
                         <i class="fas fa-utensils"></i>
                         Viandas
                     </a></li>
-                    <li><a href="pasteleria.html" >
+                    <li><a href="pasteleria.html">
                         <i class="fas fa-birthday-cake"></i>
                         Pastelería
                     </a></li>
                     <!-- NUEVOS ITEMS AÑADIDOS -->
-                    <li><a href="empanadas.html" >
+                    <li><a href="empanadas.html">
                         <i class="fa-solid fa-cheese"></i>
                         Empanadas y Tartas
                     </a></li>
                    
-                    <li><a href="golosinas.html" class="active">
+                    <li><a href="golosinas.html">
                         <i class="fas fa-candy-cane"></i>
                         Golosinas
                     </a></li>
@@ -691,11 +692,9 @@
     </header>
 
     <!-- Hero section -->
-        <!-- Hero section -->
-             <!-- Hero section -->
     <section class="hero">
-        <h1 class="hero-title">Golosinas y Snacks</h1>
-        <p class="hero-subtitle">Dulces tentaciones y snacks para disfrutar en cualquier momento. Pequeños placeres para endulzar tu día</p>
+        <h1 class="hero-title">Bebidas</h1>
+        <p class="hero-subtitle">Disfruta de nuestra selección de bebidas frescas</p>
     </section>
 
     <!-- Filtro de categorías (scroll horizontal) -->
@@ -703,184 +702,452 @@
         <button class="filter-btn active" data-filter="all">
             <i class="fas fa-star"></i> Todas
         </button>
-        <button class="filter-btn" data-filter="chocolates">
-            <i class="fas fa-candy"></i> Chocolates
+        
         </button>
-        <button class="filter-btn" data-filter="caramelos">
-            <i class="fas fa-candy-cane"></i> Caramelos
+        <button class="filter-btn" data-filter="gas">
+           <i class="fa-solid fa-bottle-water"></i> Gaseosas
         </button>
-
-        <button class="filter-btn" data-filter="chicles">
-            <i class="fas fa-bubble"></i> Chicles
+        <button class="filter-btn" data-filter="agua">
+            <i class="fas fa-glass-whiskey"></i> Agua mineral
         </button>
-
-        <button class="filter-btn" data-filter="alfajores">
-            <i class="fas fa-cookie"></i> Alfajores
+        <button class="filter-btn" data-filter="jugo">
+            <i class="fas fa-glass-whiskey"></i> Agua Saborisada
         </button>
-        <button class="filter-btn" data-filter="snacks">
-            <i class="fas fa-popcorn"></i> Snacks
+        
+        <button class="filter-btn" data-filter="alcohol">
+            <i class="fas fa-wine-glass-alt"></i> Alcohol
         </button>
     </div>
 
     <!-- Grid de productos - 2 COLUMNAS -->
     <div class="products-container">
         <div class="products-grid">
-            <!-- Chocolate con Almendras -->
-            <div class="product-card" data-category="chocolates">
-                <div class="product-image" style="background-image: url('https://http2.mlstatic.com/D_NQ_NP_895065-MLA49650036006_042022-O.webp');">
+            <!-- Café V60 -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://media.istockphoto.com/id/477567550/es/foto/bebidas-helada.jpg?s=612x612&w=0&k=20&c=utvO5blVI8Ti37mn4vHsxxDo5ZvWlQO1RV6mh5e_Uvs=');">
                     
                 </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Monedas de chocolate</h3>
-                        <div class="product-price">$1.000</div>
+                        <h3 class="product-name">Latas</h3>
+                        <div class="product-price">$1.500</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Coca cola,fanta y sprite.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
-
-            <!-- Caramelos de Fruta -->
-            <div class="product-card" data-category="caramelos">
-                <div class="product-image" style="background-image: url('https://d22fxaf9t8d39k.cloudfront.net/5cb1f2b538c501e090f42ffef9b40b06aaba1cff58a9cb2cdcca0ddb7055988e115225.jpeg');">
-                    <span class="product-badge">Clásicos</span>
-                </div>
-                <div class="product-content">
-                    <div class="product-header">
-                        <h3 class="product-name">Yummi</h3>
-                        <div class="product-price">$600</div>
-                    </div>
-                    
-                    <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alfajor de Maicena -->
-            <div class="product-card" data-category="alfajores">
-                <div class="product-image" style="background-image: url('https://blog.rentennials.app/wp-content/uploads/2022/07/Aliado-Entre-Dos-alfajores.jpg');">
+            <!-- producto -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://pbs.twimg.com/media/Cyrd1riXAAEdr5v.jpg');">
                     
                 </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Entre 2</h3>
-                        <div class="product-price">$2.300</div>
+                        <h3 class="product-name">Power Ade</h3>
+                        <div class="product-price">$2.500</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Bebidas energizantes.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
-             <!-- Alfajor de Maicena -->
-            <div class="product-card" data-category="alfajores">
-                <div class="product-image" style="background-image: url('https://acdn-us.mitiendanube.com/stores/006/038/294/products/rasta-negro-pack-prod-1-9b0a3d7d768ef7302017478418013300-1024-1024.webp');">
+
+             <!-- producto -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://latorrepizza.com.ar/wp-content/uploads/2023/03/B-GASEOSAS-min.jpg');">
                     
                 </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Rasta</h3>
-                        <div class="product-price">$1.700</div>
+                        <h3 class="product-name">Gaseosas 500 ml</h3>
+                        <div class="product-price">$2.000</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Coca cola,fanta y sprite.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Chicles de Menta 
-            <div class="product-card" data-category="chicles">
-                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1621944190310-e3cca1564bd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
-                    <span class="product-badge">Refrescantes</span>
+            <!-- producto -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://newbarmdp.com/wp-content/uploads/gaseosa-linea-coca-cola-15-l.jpg');">
+                    
                 </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Chicles de Menta</h3>
-                        <div class="product-price">$1.50</div>
+                        <h3 class="product-name">Gaseosas 1 Litro</h3>
+                        <div class="product-price">$2.500</div>
                     </div>
-                    <p class="product-description">Chicles sabor menta fuerte, refrescantes y de larga duración.</p>
+                    <p class="product-description">Coca cola,fanta y sprite.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        <span class="product-tag highlight">Refrescante</span>
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
-            </div>-->
+            </div>
 
+            <!-- producto -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://newbarmdp.com/wp-content/uploads/gaseosa-linea-coca-cola-15-l.jpg');">
+                    
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Gaseosas 1 Litro y Medio</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description">Coca cola,fanta y sprite.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+             <!-- producto -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://http2.mlstatic.com/D_Q_NP_2X_828802-MLA99820489743_112025-T.webp');">
+                    
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Gaseosas 2 Litros y Cuarto</h3>
+                        <div class="product-price">$4.500</div>
+                    </div>
+                    <p class="product-description">Coca cola,fanta y sprite.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+             
+             <!-- producto -->
+            <div class="product-card" data-category="gas">
+                <div class="product-image" style="background-image: url('https://media.gettyimages.com/id/1237483208/es/foto/monster-energy-drinks-cans-are-seen-at-the-shop-in-krakow-poland-on-december-31-2021.jpg?s=612x612&w=gi&k=20&c=a8GK5OG4rHwNy_slrD8_nbCai2RDeJ9Gw_shMBVh0f0=');">
+                    
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Monsters</h3>
+                        <div class="product-price">$2.000</div>
+                    </div>
+                    <p class="product-description">Bebidas energizantes.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frio</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Gin Tónico -->
             
 
-            <div class="product-card" data-category="snacks">
-                <div class="product-image" style="background-image: url('https://www.distribuidorapop.com.ar/wp-content/uploads/2017/07/galletitas-pepitos-venta.jpg');"></div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/417713/7790895009846_E02.jpg?v=638358353688470000');">
+                    <span class="product-badge">Dulce</span>
+                </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Pepitos</h3>
-                        <div class="product-price">$3.000</div>
+                        <h3 class="product-name">Cepita 1 Litro</h3>
+                        <div class="product-price">$2.500</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Durazno, Manzana y Naranja. Rico en vitaminas.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        <span class="product-tag highlight">Crocante</span>
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://jumboargentina.vtexassets.com/arquivos/ids/801067/Jugo-Cepita-Durazno-Delicioso-1-5l-Packx4-pck-lt-6-1-121884.jpg?v=638367069916200000');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Cepita 1 Litro y Medio</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description">Durazno, Manzana, Anana y Naranja. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
 
 
-             <div class="product-card" data-category="snacks">
-                <div class="product-image" style="background-image: url('https://3hdistribucion.com/wp-content/uploads/2024/05/2352.jpg');"></div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3051603_f.jpg');">
+                    <span class="product-badge">Dulce</span>
+                </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Mini Pepitos</h3>
-                        <div class="product-price">$1.800</div>
+                        <h3 class="product-name">Ades 200ml</h3>
+                        <div class="product-price">$1.000</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Durazno, Manzana, Anana y Naranja.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        <span class="product-tag highlight">Crocante </span>
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
 
 
-            <!-- Turrón -->
-            <div class="product-card" data-category="snacks">
-                <div class="product-image" style="background-image: url('https://www.farmaciassanchezantoniolli.com.ar/13209-large_default/oreo-galletas-dulces-x-118g.jpg');"></div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3051603_f.jpg');">
+                    <span class="product-badge">Dulce</span>
+                </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Oreo</h3>
-                        <div class="product-price">$3.000</div>
+                        <h3 class="product-name">Ades 1 Litro</h3>
+                        <div class="product-price">$3.500</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Durazno, Manzana, Anana y Naranja.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        <span class="product-tag highlight">Crocante</span>
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-category="snacks">
-                <div class="product-image" style="background-image: url('https://fratalmacenar.vtexassets.com/arquivos/ids/155529/MINI-OREO-X-50-GR.jpg?v=638231350998330000');"></div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3051412_f.jpg');">
+                    <span class="product-badge">Dulce</span>
+                </div>
                 <div class="product-content">
                     <div class="product-header">
-                        <h3 class="product-name">Mini Oreo</h3>
-                        <div class="product-price">$1.800</div>
+                        <h3 class="product-name">Cepita 300ml</h3>
+                        <div class="product-price">$1.500</div>
                     </div>
-                    <p class="product-description"></p>
+                    <p class="product-description">Durazno, Manzana, Anana y Naranja.</p>
                     <div class="product-tags">
-                        <span class="product-tag">Unidad</span>
-                        <span class="product-tag highlight">Crocante</span>
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
                     </div>
                 </div>
             </div>
-        </div>
+
+
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://hamburgo.co/constitucion/wp-content/uploads/sites/4/2025/09/Aquarius.png');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Aquarius 500ml</h3>
+                        <div class="product-price">$2.000</div>
+                    </div>
+                    <p class="product-description">Pomelo, Manzana, Limon, Pera Uva y Naranja. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://laparola.odoo.com/web/image/product.template/94/image_1024?unique=775cea7');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Aquarius 1,5 Litro</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description">Pomelo, Manzana, Limon, Pera Uva y Naranja. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="agua">
+                <div class="product-image" style="background-image: url('https://jumboargentina.vtexassets.com/arquivos/ids/795828-800-600?v=638313501973800000&width=800&height=600&aspect=true');">
+                    <span class="product-badge">Saludable</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Agua mineral 500ml</h3>
+                        <div class="product-price">$2.000</div>
+                    </div>
+                    <p class="product-description">Agua mineral.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="agua">
+                <div class="product-image" style="background-image: url('https://jumboargentina.vtexassets.com/arquivos/ids/816033-800-600?v=638467190629970000&width=800&height=600&aspect=true');">
+                    <span class="product-badge">Saludable</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Agua mineral 2 Litros</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description">Agua mineral.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDRODQuLiU-QNjVNAKfFt-LZkq0qshGti8yg&s');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Casa De La Torre</h3>
+                        <div class="product-price">$2.700</div>
+                    </div>
+                    <p class="product-description">Limonada, Frutos rojos, Frutilla y Maracuya. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://www.baggio.com.ar/es/images/productos/med/23.png');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Fresh 500ml</h3>
+                        <div class="product-price">$1.500</div>
+                    </div>
+                    <p class="product-description"> Manzana, Pomelo y Naranja. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="jugo">
+                <div class="product-image" style="background-image: url('https://angelitagolosinas.com.ar/Articulo_Foto_Multi/8729_0.jpeg');">
+                    <span class="product-badge">Dulce</span>
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name"> Fresh 1,5 Litro</h3>
+                        <div class="product-price">$2.500</div>
+                    </div>
+                    <p class="product-description"> Manzana, Pomelo y Naranja. Rico en vitaminas.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Sin Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="alcohol">
+                <div class="product-image" style="background-image: url('https://dcdn-us.mitiendanube.com/stores/005/091/765/products/image2024080510170739136-909280e4faf7c529d817362795223953-1024-1024.png');">
+                   
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name"> Corona</h3>
+                        <div class="product-price">$3.300</div>
+                    </div>
+                    <p class="product-description"></p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="alcohol">
+                <div class="product-image" style="background-image: url('https://supertopar.vtexassets.com/arquivos/ids/156606/304120.jpg?v=638899994844930000');">
+                   
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name"> Schneider</h3>
+                        <div class="product-price">$5.000</div>
+                    </div>
+                    <p class="product-description"></p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="alcohol">
+                <div class="product-image" style="background-image: url('https://atomoconviene.com/atomo-ecommerce/66350-large_default/cerveza-andes-lata-473-cc--.jpg');">
+                   
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Andes</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description"></p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Alcohol</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Jugo Verde -->
+            <div class="product-card" data-category="alcohol">
+                <div class="product-image" style="background-image: url('https://www.quilmes.com.ar/sites/g/files/wnfebl11841/files/CARROUSEL%20LATAS%20217X594_1-CLASICA%20217X594.png');">
+                   
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name"> Quilmes</h3>
+                        <div class="product-price">$3.500</div>
+                    </div>
+                    <p class="product-description"></p>
+                    <div class="product-tags">
+                        <span class="product-tag">Frío</span>
+                        <span class="product-tag highlight">Alcohol</span>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+ </div>
     </div>
-    
+
+           
+
+            
 
     <!-- Ofertas especiales -->
   
@@ -891,7 +1158,7 @@
             <div class="footer-column">
                 <h3>Del Rosario</h3>
                 <p>Donde cada bebida cuenta una historia. Calidad y pasión en cada detalle.</p>
-                <div class="social-links">
+                 <div class="social-links">
                     <a href="https://www.instagram.com/delrosario_productos?igsh=MXdvNXY1bGdhbGtnMw==" class="social-icon"><i class="fab fa-instagram"></i></a>
                    <!-- <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a> -->
                     <a href="https://api.whatsapp.com/message/2XJFYDIM35NTP1?autoload=1&app_absent=0&utm_source=ig" class="social-icon"><i class="fab fa-whatsapp"></i></a>
@@ -942,7 +1209,7 @@
             <span>Sandwich</span>
         </a>
 
-        <a href="bebidas.html" class="nav-item">
+        <a href="bebidas.html" class="nav-item active">
             <i class="fa-solid fa-bottle-water"></i>
             <span>Bebidas</span>
         </a>
@@ -960,7 +1227,7 @@
             <span>Empanadas y Tartas  </span>
         </a>
         
-        <a href="golosinas.html" class="nav-item active">
+        <a href="golosinas.html" class="nav-item">
             <i class="fas fa-candy-cane"></i>
             <span>Golosinas</span>
         </a>
