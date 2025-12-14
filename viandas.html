@@ -654,6 +654,27 @@
         font-size: 0.9rem;
     }
 }
+     /* Color original de la letra */
+       .leaf-o {
+    position: relative;
+    color: inherit; /* Color original de la letra */
+} 
+   
+   .leaf-o::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 80%;
+    transform: translateX(-50%) scale(1.2);
+    width: 20px;
+    height: 20px;
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3XgbqQOLMbFy2qXswgx8NkhYk9ymfOasSfbuDPqCzksazMSdf-sOhWtUyTosrddqoYRUV-7hqQGQm2mPSmWsj_N70xr4Ig_JjppuQv5j0TSwtaC5OzcIYAqdXv_GMZHv1rDgiz6HRwrOiPb7r6RziGoL3dZlJoOFe_jKlJy_N42iEKp6jp9jDZpLFgVMd/s320/ChatGPT%20Image%2014%20dic%202025,%2010_22_18%20a.m..png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    z-index: -1; /* Cambiado a -1 para que esté detrás del texto */
+    opacity: 0.9;
+}     
     </style>
 </head>
 <body>
@@ -661,11 +682,11 @@
     <header>
         <div class="header-container">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-store"></i>
-                </div>
-                <span>Del Rosario</span>
-            </a>
+            <div class="logo-icon">
+                <i class="fas fa-store"></i>
+            </div>
+            <span class="logo-text">Del Rosari<span class="leaf-o">o</span></span>
+        </a>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1188,4 +1209,5 @@
     </script>
 </body>
 </html>
+
 
