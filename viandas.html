@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -619,6 +620,236 @@
                 display: flex;
             }
         }
+      
+      
+      /* BOTÓN FLOTANTE DE PAGO */
+.payment-floating-btn {
+    position: fixed;
+    bottom: 80px; /* Encima del menú móvil */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary), #2ecc71);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(38, 162, 105, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    border: none;
+}
+
+.payment-floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(38, 162, 105, 0.6);
+}
+
+.payment-floating-btn:active {
+    transform: scale(0.95);
+}
+
+/* MODAL DE DATOS BANCARIOS */
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    padding: 20px;
+}
+
+.payment-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.payment-modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    transform: translateY(30px);
+    transition: transform 0.4s ease;
+    position: relative;
+}
+
+.payment-modal.active .payment-modal-content {
+    transform: translateY(0);
+}
+
+.payment-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.payment-modal-close:hover {
+    background: #f0f0f0;
+    color: var(--primary);
+}
+
+.payment-modal-title {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.payment-info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.payment-item {
+    margin-bottom: 20px;
+}
+
+.payment-item:last-child {
+    margin-bottom: 0;
+}
+
+.payment-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-label i {
+    color: var(--primary);
+}
+
+.payment-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.payment-value:hover {
+    border-color: var(--primary);
+    background: #f0f7ff;
+}
+
+.copy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn:hover {
+    background: #0d4a9e;
+    transform: translateY(-2px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+.payment-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff9e6;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+/* Responsive para tablets y pantallas más grandes */
+@media (min-width: 768px) {
+    /* Botón flotante más grande en tablet */
+    .payment-floating-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        bottom: 90px;
+        right: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Botón flotante en desktop */
+    .payment-floating-btn {
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+/* Móvil pequeño (menos de 400px) */
+@media (max-width: 400px) {
+    .payment-modal-content {
+        padding: 20px;
+    }
+    
+    .payment-value {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    
+    .copy-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustar botón flotante cuando hay menú móvil */
+    .payment-floating-btn {
+        bottom: 80px;
+    }
+}
     </style>
      <style> /* Móvil pequeño (menos de 400px) */
 @media (max-width: 400px) {
@@ -676,6 +907,7 @@
     opacity: 0.9;
 }     
     </style>
+  
 </head>
 <body>
     <!-- Header móvil -->
@@ -987,7 +1219,7 @@
                         <h3 class="product-name">Carne Chica</h3>
                         <div class="product-price">$2.500</div>
                     </div>
-                    <p class="product-description">Milanesa de carne chica, con lechuga con tomate y mayonesa.</p>
+                    <p class="product-description">Milanesa de carne grande, con lechuga con tomate y mayonesa.</p>
                     <div class="product-tags">
                         <span class="product-tag">Argentino</span>
                         <span class="product-tag highlight">Clásico</span>
@@ -1074,6 +1306,57 @@
             <p>&copy; 2025 Nahuel Mamani. Todos los derechos reservados.</p>
         </div>
     </footer>
+  
+  <!-- Botón flotante para datos bancarios -->
+<button class="payment-floating-btn" id="paymentBtn">
+    <i class="fas fa-credit-card"></i>
+</button>
+
+<!-- Modal de datos bancarios -->
+<div class="payment-modal" id="paymentModal">
+    <div class="payment-modal-content">
+        <button class="payment-modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <h2 class="payment-modal-title">
+            <i class="fas fa-university"></i>
+            Datos Bancarios
+        </h2>
+        
+        <div class="payment-info">
+            <div class="payment-item">
+                <div class="payment-label">
+                    <i class="fas fa-user-circle"></i>
+                    ALIAS
+                </div>
+                <div class="payment-value" id="aliasValue" data-value="delrosario.laura.mp">
+                    delrosario.laura.mp
+                </div>
+                <button class="copy-btn" data-target="aliasValue">
+                    <i class="far fa-copy"></i>
+                    Copiar Alias
+                </button>
+            </div>
+            
+       <!--     <div class="payment-item">
+                <div class="payment-label">
+                    <i class="fas fa-id-card"></i>
+                    CBU
+                </div>
+                <div class="payment-value" id="cbuValue" data-value="0170099540000041234567">
+                    0170099540000041234567
+                </div>
+                <button class="copy-btn" data-target="cbuValue">
+                    <i class="far fa-copy"></i>
+                    Copiar CBU
+                </button>
+            </div>
+        </div> -->
+    </div>
+</div>
+  
+  
 
     <!-- Menú inferior fijo para móvil CON TODOS LOS ITEMS -->
     <div class="mobile-bottom-nav">
@@ -1207,9 +1490,109 @@
             });
         });
     </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos para el modal de pagos
+    const paymentBtn = document.getElementById('paymentBtn');
+    const paymentModal = document.getElementById('paymentModal');
+    const closeModal = document.getElementById('closeModal');
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    // Abrir modal
+    paymentBtn.addEventListener('click', function() {
+        paymentModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Cerrar modal
+    closeModal.addEventListener('click', function() {
+        paymentModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Cerrar modal al hacer clic fuera
+    paymentModal.addEventListener('click', function(event) {
+        if (event.target === paymentModal) {
+            paymentModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && paymentModal.classList.contains('active')) {
+            paymentModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Función para copiar al portapapeles
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            const valueToCopy = targetElement.getAttribute('data-value');
+            
+            // Usar la API del portapapeles
+            navigator.clipboard.writeText(valueToCopy).then(() => {
+                // Cambiar texto e ícono temporalmente
+                const originalText = this.innerHTML;
+                const originalIcon = this.querySelector('i').className;
+                
+                this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                this.style.background = 'var(--secondary)';
+                
+                // Restaurar después de 2 segundos
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.querySelector('i').className = originalIcon;
+                    this.style.background = '';
+                }, 2000);
+                
+                // Efecto visual en el campo copiado
+                targetElement.style.borderColor = 'var(--secondary)';
+                targetElement.style.background = '#f0fff4';
+                setTimeout(() => {
+                    targetElement.style.borderColor = '';
+                    targetElement.style.background = '';
+                }, 1000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+                // Fallback para navegadores antiguos
+                const textArea = document.createElement('textarea');
+                textArea.value = valueToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Mostrar mensaje de éxito igualmente
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                this.style.background = 'var(--secondary)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '';
+                }, 2000);
+            });
+        });
+    });
+    
+    // También permitir copiar haciendo clic en el campo completo
+    document.querySelectorAll('.payment-value').forEach(field => {
+        field.addEventListener('click', function() {
+            // En móvil, encontrar el botón copiar que está debajo
+            const copyBtn = this.nextElementSibling;
+            if (copyBtn && copyBtn.classList.contains('copy-btn')) {
+                copyBtn.click();
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>
-
 
 
 
