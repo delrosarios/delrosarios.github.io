@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -675,6 +676,149 @@
     opacity: 0.9;
 }     
     </style>
+   <style>
+    /* Colores de redes sociales */
+    :root {
+        --instagram: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
+        --tiktok: #010101;
+        --whatsapp: #25D366;
+    }
+
+    /* Contenedor principal del botón flotante */
+    .social-float {
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        z-index: 999;
+    }
+
+    /* Botón principal redondo */
+    .social-main-btn {
+        width: 60px;
+        height: 60px;
+        background: #1a5fb4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .social-main-btn:hover {
+        transform: scale(1.1);
+        background: #26a269;
+    }
+
+    /* Menú que contiene los iconos de redes */
+    .social-menu {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    /* Cuando el botón está activo, mostrar el menú */
+    .social-float.active .social-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+
+    /* Estilo de cada icono de red social */
+    .social-item {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        animation: slideIn 0.3s ease;
+    }
+
+    .social-item:hover {
+        transform: scale(1.15) rotate(5deg);
+    }
+
+    /* Colores específicos para cada red */
+    .social-item.instagram {
+        background: var(--instagram);
+    }
+
+    .social-item.tiktok {
+        background: var(--tiktok);
+    }
+
+    .social-item.whatsapp {
+        background: var(--whatsapp);
+    }
+
+    /* Animación de entrada */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Efecto de pulso para el botón principal */
+    .pulse-effect {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(26, 95, 180, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(26, 95, 180, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(26, 95, 180, 0);
+        }
+    }
+
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+        .social-float {
+            bottom: 85px; /* Más arriba en móvil para no tapar el menú inferior */
+        }
+        
+        .social-main-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        
+        .social-item {
+            width: 45px;
+            height: 45px;
+            font-size: 1.3rem;
+        }
+    }
+</style>
 </head>
 <body>
     <!-- Header móvil -->
@@ -970,7 +1114,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Nahuel Mamani. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Nahuel Mamani. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -1004,6 +1148,24 @@
             <span>Golosinas</span>
         </a>
     </div>
+  
+  <!-- ===== HTML DEL BOTÓN FLOTANTE ===== -->
+<div class="social-float" id="socialFloat">
+    <div class="social-main-btn pulse-effect" id="socialMainBtn">
+        <i class="fas fa-share-alt"></i>
+    </div>
+    <div class="social-menu" id="socialMenu">
+        <a href="https://www.instagram.com/delrosario_productos?igsh=MXdvNXY1bGdhbGtnMw==" target="_blank" class="social-item instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@laura_del_rosario0?_r=1&_t=ZM-91tgIMNfJ7c" target="_blank" class="social-item tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.me/5492612406544" target="_blank" class="social-item whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1106,6 +1268,51 @@
             });
         });
     </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const socialFloat = document.getElementById('socialFloat');
+        const socialMainBtn = document.getElementById('socialMainBtn');
+        const socialMenu = document.getElementById('socialMenu');
+        
+        // Toggle del menú de redes sociales
+        socialMainBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            socialFloat.classList.toggle('active');
+            
+            // Cambiar ícono
+            const icon = socialMainBtn.querySelector('i');
+            if (socialFloat.classList.contains('active')) {
+                icon.classList.remove('fa-share-alt');
+                icon.classList.add('fa-times');
+                // Quitar efecto de pulso cuando está abierto
+                socialMainBtn.classList.remove('pulse-effect');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-share-alt');
+                // Volver a añadir efecto de pulso después de cerrar
+                setTimeout(() => {
+                    socialMainBtn.classList.add('pulse-effect');
+                }, 300);
+            }
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!socialFloat.contains(e.target)) {
+                socialFloat.classList.remove('active');
+                const icon = socialMainBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-share-alt');
+                socialMainBtn.classList.add('pulse-effect');
+            }
+        });
+        
+        // Evitar que se cierre al hacer clic en los items del menú
+        socialMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
 </body>
 </html>
 
