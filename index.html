@@ -24,8 +24,8 @@
         html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden;          /* prevent scroll on body */
-            background-color: #f5f3f0; /* subtle background while iframe loads */
+            overflow: hidden;
+            background-color: #f5f3f0;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -43,7 +43,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            background: white;          /* solid background for iframe area */
+            background: white;
         }
     </style>
 </head>
@@ -51,14 +51,13 @@
 
     <div id="iframe-container">
         <iframe 
-            src="https://app.lavalleapp.com.ar/vendedor/YXp1bHZhcmdhczExMjBAZ21haWwuY29t?cat=sandwich-de-miga"
+            src="https://app.lavalleapp.com.ar/vendedor/YXp1bHZhcmdhczExMjBAZ21haWwuY29t?cat=sandwich-de-miga&nocache=1"
             allow="fullscreen; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; microphone; camera"
             sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-popups-to-escape-sandbox allow-top-navigation allow-top-navigation-by-user-activation"
             title="Del Rosario · sandwich de miga"
-            loading="lazy"
+            loading="eager"
         ></iframe>
     </div>
 
 </body>
 </html>
-```
