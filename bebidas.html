@@ -1,44 +1,66 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Del Rosario</title>
+    <title>Del Rosario · Bebidas</title>
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon principal -->
     <link rel="icon" href="1.jpg" type="image/jpeg">
     <link rel="shortcut icon" href="1.jpg" type="image/jpeg">
-    
-    <!-- Para Apple dispositivos -->
+    <!-- Apple touch icon -->
     <link rel="apple-touch-icon" href="1.jpg">
+
     <style>
-        body, html {
+        /* Reset and fullscreen layout */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
             width: 100%;
             height: 100%;
+            overflow: hidden;          /* prevent scroll on body */
+            background-color: #f5f3f0; /* subtle background while iframe loads */
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+
         #iframe-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
         }
+
         iframe {
+            display: block;
             width: 100%;
             height: 100%;
             border: none;
+            background: white;          /* solid background for iframe area */
         }
     </style>
 </head>
 <body>
+
     <div id="iframe-container">
         <iframe 
             src="https://app.lavalleapp.com.ar/vendedor/YXp1bHZhcmdhczExMjBAZ21haWwuY29t?cat=bebidas"
-            allow="fullscreen; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-popups-to-escape-sandbox allow-top-navigation allow-top-navigation-by-user-activation">
-        </iframe>
+            allow="fullscreen; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; microphone; camera"
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-popups-to-escape-sandbox allow-top-navigation allow-top-navigation-by-user-activation"
+            title="Del Rosario · bebidas"
+            loading="lazy"
+        ></iframe>
     </div>
+
 </body>
 </html>
+
+
+
